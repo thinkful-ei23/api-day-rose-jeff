@@ -2,11 +2,14 @@
 /* global $ */
 
 const api = (function() {
-  const API_KEY =  'https://thinkful-list-api.herokuapp.com/rose-jeff/items';
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/rose-jeff'; 
   const getItems = function(callback) {
-    callback('api module works!');
+  
+    $.getJSON(BASE_URL + '/items' , (response) => {
+      callback(response); 
+    });
     
+
   };
   return {
     getItems
