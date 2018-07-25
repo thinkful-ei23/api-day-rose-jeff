@@ -11,8 +11,23 @@ const api = (function() {
     
 
   };
+
+  function createItem(name, callback) {
+    const newItem = JSON.stringify({
+      name,
+    })
+    $.ajax({
+      contentType: 'application/json',
+      url: BASE_URL + '/items',
+      method: 'POST',
+      data: newItem,
+      success: callback,
+    });
+  }
+
   return {
-    getItems
+    getItems,
+    createItem
   };
 }());
 
