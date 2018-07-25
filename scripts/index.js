@@ -7,11 +7,17 @@ $(document).ready(function() {
   shoppingList.render();
   
   api.getItems((items) => {
+    const item = items[0];
     items.forEach((item) => store.addItem(item));
     shoppingList.render();
+    api.updateItem(item.id, { name: 'foobar' }, () => {
+      console.log('updated!');
+    });
   });
-
 });
+
+
+  
 
 //store.items.push(Item.create('oranges'));
 
