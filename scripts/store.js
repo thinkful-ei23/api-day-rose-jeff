@@ -3,10 +3,11 @@
 
 // eslint-disable-next-line no-unused-vars
 const store = (function(){
-  const addItem = function(name) {
+  const addItem = function(itemObject) {
     try {
-      Item.validateName(name);
-      this.items.push(Item.create(name));
+      Item.validateName(itemObject.name);
+      console.log(itemObject.name);
+      this.items.push(itemObject);
     } catch(e) {
       console.log(e.message);
     }

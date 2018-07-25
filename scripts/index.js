@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 });
 
-store.items.push(Item.create('oranges'));
+//store.items.push(Item.create('oranges'));
 
 
 

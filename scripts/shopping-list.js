@@ -1,10 +1,11 @@
 'use strict';
-/* global store */
+/* global store $ */
 
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
 
   function generateItemElement(item) {
+    console.log(item);
     let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
     if (!item.checked) {
       itemTitle = `
@@ -61,9 +62,13 @@ const shoppingList = (function(){
       event.preventDefault();
       const newItemName = $('.js-shopping-list-entry').val();
       $('.js-shopping-list-entry').val('');
-      store.addItem(newItemName);
-      render();
-    });
+      console.log(newItemName);
+      api.createItem(newItemName, (newItem) => {
+        console.log(newItem);
+        store.addItem(newItem);
+        render();
+      });
+    }); 
   }
   
   function getItemIdFromElement(item) {
